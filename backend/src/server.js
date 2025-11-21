@@ -11,12 +11,15 @@ dotenv.config();
 
 const app = express();
 
+// CORS configuration
 app.use(cors({
   origin: process.env.CLIENT_URL || 'http://localhost:5173',
   credentials: true,
 }));
+
 app.use(express.json());
 
+// Request logger middleware
 app.use(requestLogger);
 
 // Auth routes
@@ -25,33 +28,45 @@ app.use('/api/auth', authRoutes);
 // Career routes
 app.use('/api', careerRoutes);
 
+// Root route (prevent 404 on Render)
+app.get("/", (req, res) => {
+  res.json({
+    status: "running",
+    message: "Career Guidance backend deployed successfully!",
+    health: "/api/health",
+  });
+});
+
+// Health check
 app.get('/api/health', (req, res) => {
   res.json({ 
-    status: 'ok', 
+    status: 'ok',
     message: 'Career guidance API is running',
     database: process.env.MONGODB_URI ? 'MongoDB' : 'In-memory',
     timestamp: new Date().toISOString()
   });
 });
 
+// Not found handler
 app.use(notFound);
+
+// Error handler
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-// Start server with optional database connection
 const startServer = async () => {
-  // Connect to database if URI is provided
-  await connectDatabase(process.env.MONGODB_URI);
+  try {
+    await connectDatabase(process.env.MONGODB_URI);
 
-  app.listen(PORT, () => {
-    console.log(`🚀 Server listening on port ${PORT}`);
-    console.log(`📡 Health check: http://localhost:${PORT}/api/health`);
-  });
+    app.listen(PORT, () => {
+      console.log(`🚀 Server listening on port ${PORT}`);
+      console.log(`📡 Health check: http://localhost:${PORT}/api/health`);
+    });
+  } catch (err) {
+    console.error('Failed to start server:', err);
+    process.exit(1);
+  }
 };
 
-startServer().catch((err) => {
-  console.error('Failed to start server:', err);
-  process.exit(1);
-});
-
+startServer();
