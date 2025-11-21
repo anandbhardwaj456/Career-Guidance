@@ -135,7 +135,7 @@ career-guidance/
 ### 1. Clone the Repository
 
 ```bash
-git clone [<repository-url>](https://github.com/anandbhardwaj456/Career-Guidance.git)
+git clone https://github.com/anandbhardwaj456/Career-Guidance.git
 cd career-guidance
 ```
 
