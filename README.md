@@ -4,6 +4,7 @@ A full-stack career readiness assessment tool that helps users analyze skill gap
 
 ## 📋 Table of Contents
 
+- [Live URLs](#live-urls)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
 - [Project Structure](#project-structure)
@@ -15,6 +16,11 @@ A full-stack career readiness assessment tool that helps users analyze skill gap
 - [Deployment](#deployment)
 - [Assumptions & Design Decisions](#assumptions--design-decisions)
 - [Future Enhancements](#future-enhancements)
+
+## 🔗 Live URLs
+
+- **Frontend (Render):** https://career-guidance-1-0qbm.onrender.com
+- **Backend API (Render):** https://career-guidance-apw9.onrender.com/api
 
 ## ✨ Features
 
@@ -460,6 +466,12 @@ GET /api/auth/check-email?email=user@example.com
 |----------|-------------|----------|---------|
 | `VITE_API_BASE_URL` | Backend API URL | No | `http://localhost:5000/api` |
 
+For the deployed backend on Render, you can set:
+
+```env
+VITE_API_BASE_URL=https://career-guidance-apw9.onrender.com/api
+```
+
 ## 🌐 Deployment
 
 ### Frontend (Vercel/Netlify)
@@ -473,7 +485,7 @@ npm run build
 2. Deploy the `dist` folder to Vercel or Netlify
 
 3. Set environment variable:
-   - `VITE_API_BASE_URL`: Your backend API URL
+   - `VITE_API_BASE_URL`: Your backend API URL (for example: `https://career-guidance-apw9.onrender.com/api`)
 
 ### Backend (Render/Railway)
 
@@ -491,7 +503,7 @@ cd backend && npm start
 
 4. Set environment variables:
    - `PORT`: (auto-assigned)
-   - `CLIENT_URL`: Your frontend URL
+   - `CLIENT_URL`: Your frontend URL (for example: `https://career-guidance-1-0qbm.onrender.com`)
    - `MONGODB_URI`: (optional)
 
 ## 💡 Assumptions & Design Decisions
