@@ -572,15 +572,12 @@ Currently supports **11 specialized roles**:
 - [ ] Dark/light theme toggle
 - [ ] Multi-language support
 
-## 📝 License
 
-This project is created for assessment purposes.
 
 ## 👤 Author
 
-Built for company assessment - Career Guidance Platform
+Anand Bhardwaj
 
 ---
 
-**Note:** This is a demonstration project. For production use, consider adding authentication, rate limiting, and additional security measures.
 
