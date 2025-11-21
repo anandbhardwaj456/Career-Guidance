@@ -13,10 +13,16 @@ const app = express();
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:5173',
-  credentials: true,
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
+<<<<<<< HEAD
+=======
+app.options('*', cors());
+
+>>>>>>> a0c7be8 (Relax CORS for Render deployment)
 app.use(express.json());
 
 // Request logger middleware
