@@ -35,9 +35,6 @@ export default function Dashboard() {
             </p>
           </div>
           <div className="flex items-center gap-3 justify-between md:justify-end">
-            <div className="hidden text-xs text-slate-500 md:block">
-              Backend: <span className="font-mono">{API_BASE}</span>
-            </div>
             <div className="flex items-center gap-2 rounded-full border border-slate-700 bg-slate-900/70 px-3 py-1 text-xs">
               <div className="h-7 w-7 flex items-center justify-center rounded-full bg-sky-500 text-slate-950 font-semibold text-xs">
                 {user?.name?.[0]?.toUpperCase() || 'U'}
