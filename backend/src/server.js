@@ -17,12 +17,6 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
 }));
-
-<<<<<<< HEAD
-=======
-app.options('*', cors());
-
->>>>>>> a0c7be8 (Relax CORS for Render deployment)
 app.use(express.json());
 
 // Request logger middleware
